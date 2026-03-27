@@ -1,7 +1,6 @@
 # DNA Melting Temperature Prediction in Mixed Salt Buffers
 **Ayman Hussein — Data Science Bootcamp, The Erdős Institute, Spring 2026**
 
-Claude made this using my summary PDF.
 ---
 
 ## Overview
@@ -145,5 +144,9 @@ While our model does not outperform *Owc-2008*, it offers several advantages:
 2. **Owc-2004:** R. Owczarzy et al., *Biochemistry* 43(12), 3537–3554. https://doi.org/10.1021/bi034621
 3. **Owc-2008:** R. Owczarzy et al., *Biochemistry* 47(19), 5336–5353. https://doi.org/10.1021/bi702363u
 4. **Unz-2010:** J.M. Huguet et al., *Proc. Natl. Acad. Sci. U.S.A.* 107(35), 15431–15436. https://doi.org/10.1073/pnas.1001454107
+
+Credit:
+Claude made this using my summary PDF.
+
 5. **Unz-2017:** J.M. Huguet et al., *Nucleic Acids Research* 45(22), 12921–12931. https://doi.org/10.1093/nar/gkx1161
 6. **Volo-2018:** A. Vologodskii & M.D. Frank-Kamenetskii, *Physics of Life Reviews* 25, 1–21. https://doi.org/10.1016/j.plrev.2017.11.012
