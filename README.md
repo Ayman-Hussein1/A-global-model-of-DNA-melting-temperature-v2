@@ -23,7 +23,7 @@ A key example is **Polymerase Chain Reaction (PCR)**, where optimal amplificatio
 ## Background & Literature
 
 ### Primary Reference Model (Owczarzy et al., 2008 — *Owc-2008*)
-- Developed empirical correction formulas for Tm prediction in Mg²⁺-dominant (Eq. 16) and mixed-salt buffers (Eqs. 16 + 18–20), using linear regression on 680+ melting temperatures.
+- Developed empirical correction formulas for Tm prediction in Mg²⁺-dominant (Eq. 16) and mixed-salt buffers (Eqs. 16 + 18–20), using linear regression of over a thousand melting temperatures.
 - Also uses a monovalent-only formula (Eq. 4) from a prior study (*Owc-2004*).
 - A **decision tree** (Fig. 9) selects among the three formulas based on the ratio of ion concentrations.
 - Reference Tm at 1 M Na⁺ is computed from nearest-neighbor thermodynamic parameters (*SantaLucia, 1998*).
@@ -61,7 +61,7 @@ A key example is **Polymerase Chain Reaction (PCR)**, where optimal amplificatio
 
 ## Features Engineering
 
-All feature sets include:
+Guided by experimental literature, all feature sets include:
 - `length_bp` — duplex length in base pairs
 - `log_monovalent_M` — log([monovalent]) in mol/L
 - `log_Mg2+_M` — log([Mg²⁺]) in mol/L
@@ -103,7 +103,7 @@ Three model families were compared:
 | Modern (11) | 5.67 ± 2.67 | 5.43 ± 2.88 | 9.10 ± 8.47 |
 | Modern + salt (29) | 5.67 ± 2.68 | 7.91 ± 3.97 | 8.29 ± 7.28 |
 
-✅ **Best model: GAM with Typical features + salt interactions (8 features)**
+**Best model: GAM with Typical features + salt interactions (8 features)**
 
 ### Test Performance (MAE, °C)
 
@@ -119,7 +119,7 @@ The elevated error on the full test set is largely driven by 40 bp and 60 bp seq
 
 ## Conclusions
 
-While our model does not outperform *Owc-2008*, it offers several advantages:
+While our model, within experimental error still, does not outperform *Owc-2008*, it offers several advantages:
 
 1. **Minimal feature set** — captures the most relevant physical dependencies (length, GC content, log[salt]) in agreement with literature.
 2. **Trained on ~500 data points** — less than half the data used by *Owc-2008* (>1000 total).
@@ -131,17 +131,17 @@ While our model does not outperform *Owc-2008*, it offers several advantages:
 ## Future Directions
 
 - **More data:** Add length-diverse sequences to improve generalization beyond 15–30 bp.
-- **Modern feature set revisited:** Dinucleotide-step features may unlock a simpler linear model given sufficient data.
+- **Modern feature set revisited:** Dinucleotide-step features may unlock a simpler linear model given sufficient tuning and/or data.
 - **Dataset splitting strategies:** Explore whether 4-length-category structure can be leveraged further without overfitting.
-- **Salt–salt interactions:** Physically motivated modeling of monovalent–divalent competition (e.g., via MD simulations).
-- **Hybrid models:** Combine linear (interpretable) and nonlinear contributions, potentially using prior models as a scaffold.
+- **Salt–salt interactions:** Physically motivated modeling of monovalent–divalent competition might capture deeper effects.
+- **Hybrid models:** Combine linear (interpretable) and nonlinear contributions, potentially using prior models as a guides.
 
 ---
 
 ## References
 
 1. **SantaLucia-1998:** J. SantaLucia, *Proc. Natl. Acad. Sci. U.S.A.* 95(4), 1460–1465. https://doi.org/10.1073/pnas.95.4.1460
-2. **Owc-2004:** R. Owczarzy et al., *Biochemistry* 43(12), 3537–3554. https://doi.org/10.1021/bi034621
+2. **Owc-2004:** R. Owczarzy et al., *Biochemistry* 43(12), 3537–3554. https://doi.org/10.1021/bi034621r
 3. **Owc-2008:** R. Owczarzy et al., *Biochemistry* 47(19), 5336–5353. https://doi.org/10.1021/bi702363u
 4. **Unz-2010:** J.M. Huguet et al., *Proc. Natl. Acad. Sci. U.S.A.* 107(35), 15431–15436. https://doi.org/10.1073/pnas.1001454107
 5. **Unz-2017:** J.M. Huguet et al., *Nucleic Acids Research* 45(22), 12921–12931. https://doi.org/10.1093/nar/gkx1161
